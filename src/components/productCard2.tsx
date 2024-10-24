@@ -27,9 +27,9 @@ const ChhotaOttoCard: React.FC = () => {
           Introducing Chhota Otto
         </h2>
         <p className="text-gray-600 mb-6">
-          The "Chhota Otto" is E-Vi's durable electric rickshaw, offering low
-          operational costs, quick charging, and seating for six. Perfect for
-          city commutes.
+          The &quot;Chhota Otto&quot; is E-Vi&apos;s durable electric rickshaw,
+          offering low operational costs, quick charging, and seating for six.
+          Perfect for city commutes.
         </p>
 
         <ul className="mb-6 space-y-4">

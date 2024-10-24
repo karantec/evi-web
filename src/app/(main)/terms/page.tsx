@@ -79,8 +79,8 @@ const TermsOfUse: React.FC = () => {
               purpose.
             </li>
             <li>
-              You agree not to interfere with or disrupt the website's security
-              features or attempt to gain unauthorized access.
+              You agree not to interfere with or disrupt the website&apos;s
+              security features or attempt to gain unauthorized access.
             </li>
           </ul>
         </section>

@@ -11,12 +11,12 @@ const testimonials = [
   },
   {
     quote:
-      "EVI's support team has been amazing! Their electric vehicles have transformed our business, reducing operational costs significantly. We're excited about future opportunities.",
+      "EVI&apos;s support team has been amazing! Their electric vehicles have transformed our business, reducing operational costs significantly. We&apos;re excited about future opportunities.",
     name: "Amit Sharma, CEO, FleetCorp",
   },
   {
     quote:
-      "Our collaboration with EVI has been seamless. Their innovation in electric 3-wheelers is a game changer for last-mile delivery solutions. We're beyond satisfied with their service.",
+      "Our collaboration with EVI has been seamless. Their innovation in electric 3-wheelers is a game changer for last-mile delivery solutions. We&apos;re beyond satisfied with their service.",
     name: "Neha Gupta, COO, Delivery Solutions",
   },
   {
@@ -26,7 +26,7 @@ const testimonials = [
   },
   {
     quote:
-      "EVI's electric rickshaws are the best in the market. We’ve seen massive growth since we partnered with them. Our customers love the smooth rides and operational efficiency.",
+      "EVI&apos;s electric rickshaws are the best in the market. We’ve seen massive growth since we partnered with them. Our customers love the smooth rides and operational efficiency.",
     name: "Priya Nair, Founder, RideSafe",
   },
 ];
@@ -81,7 +81,7 @@ const TestimonialCarousel: React.FC = () => {
                 {/* Right Section - Testimonial Text */}
                 <div className="w-full md:w-2/3 flex flex-col justify-center text-left mt-4 md:mt-0">
                   <p className="text-xl font-medium text-gray-800 mb-4">
-                    "{testimonial.quote}"
+                    &quot;{testimonial.quote}&quot;
                   </p>
                   <p className="text-sm font-semibold text-blue-900">
                     • {testimonial.name}

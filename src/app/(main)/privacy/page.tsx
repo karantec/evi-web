@@ -130,10 +130,10 @@ const PrivacyPolicy: React.FC = () => {
         <section className="mb-12">
           <h2 className="text-2xl font-semibold mb-4">Cookies</h2>
           <p className="text-gray-600 leading-relaxed">
-            Cookies are small data files stored on a user's PC when accessing a
-            website, which may be employed by our Website to assist users in
-            accessing specific functions. Temporary cookies are used and expire
-            once users leave our website.
+            Cookies are small data files stored on a user&apos;s PC when
+            accessing a website, which may be employed by our Website to assist
+            users in accessing specific functions. Temporary cookies are used
+            and expire once users leave our website.
           </p>
         </section>
 

@@ -11,9 +11,9 @@ const CardComponent: React.FC = () => {
           Introducing Chhota Bull
         </h2>
         <p className="text-gray-600 mb-6">
-          The "Chhota Bull" is E-Vi's sturdy electric loader with a 400 kg
-          capacity, quick charge feature, and 20 paise/km running cost. Ideal
-          for multiple sectors.
+          The &quot;Chhota Bull&quot; is E-Vi&apos;s sturdy electric loader with
+          a 400 kg capacity, quick charge feature, and 20 paise/km running cost.
+          Ideal for multiple sectors.
         </p>
 
         <ul className="mb-6 space-y-4">
