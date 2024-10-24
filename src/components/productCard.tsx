@@ -104,8 +104,8 @@ const CardComponent: React.FC = () => {
           <Image
             src="/rick1.svg" // Ensure your 'rick-1.svg' is in the 'public' directory.
             alt="Rickshaw"
-            width={500}
-            height={500}
+            width={700}
+            height={700}
             layout="responsive"
           />
         </div>

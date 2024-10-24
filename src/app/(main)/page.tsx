@@ -6,11 +6,13 @@ import Info from "@/components/info";
 import TestimonialCarousel from "@/components/testimonial";
 import FAQSection from "@/components/faqSection";
 import Footer from "@/components/footer";
+import HeroSection from "@/components/heroSection";
 
 export default function Home() {
   return (
     <div className="min-h-screen w-screen">
       <Navbar />
+      <HeroSection />
       <Info />
 
       {/* Explore Our Fleet Section */}

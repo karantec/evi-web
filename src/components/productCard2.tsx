@@ -4,7 +4,7 @@ import Image from "next/image";
 // Assuming the image is in the 'public' folder and named 'chhota-otto.svg'
 const ChhotaOttoCard: React.FC = () => {
   return (
-    <div className="flex flex-col md:flex-row bg-white rounded-lg shadow-lg p-6 md:p-8 max-w-6xl  mx-auto items-center">
+    <div className="flex flex-col md:flex-row bg-[#E5E5E5] rounded-lg shadow-lg p-6 md:p-8 max-w-6xl  mx-auto items-center">
       {/* Left Section - Rickshaw Image */}
       <div className="w-full md:w-2/3 flex justify-center">
         {/* Rickshaw Image */}
@@ -14,8 +14,8 @@ const ChhotaOttoCard: React.FC = () => {
           <Image
             src="/rick2.svg" // Assuming your image is named 'chhota-otto.svg' and located in the 'public' directory
             alt="Chhota Otto"
-            width={700} // Increased width
-            height={700} // Increased height
+            width={600} // Increased width
+            height={600} // Increased height
             layout="responsive"
           />
         </div>
