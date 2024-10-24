@@ -36,6 +36,12 @@ const Navbar: React.FC = () => {
               >
                 Blogs
               </Link>
+              <Link
+                className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
+                href="/privacy"
+              >
+                Policy
+              </Link>
             </div>
           </div>
 
