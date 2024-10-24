@@ -1,18 +1,25 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const Navbar: React.FC = () => {
   return (
-    <nav className="bg-white   shadow-xl mt-3">
+    <nav className="bg-white shadow-xl mt-3">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center flex-shrink-0">
-            <img
-              className="h-17 w-17"
-              src="/logo.svg" // Replace this with your logo's path
-              alt="Logo"
-            />
+            <Link href="/" passHref>
+              <Image
+                src="/logo.svg" // Replace with your actual logo path
+                alt="Logo"
+                width={68} // Adjust width as needed
+                height={68} // Adjust height as needed
+                className="h-17 w-17"
+              />
+            </Link>
           </div>
 
           {/* Centered Menu */}
@@ -21,24 +28,28 @@ const Navbar: React.FC = () => {
               <Link
                 className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
                 href="/about-us"
+                passHref
               >
                 About Us
               </Link>
               <Link
                 className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
                 href="/product-page"
+                passHref
               >
                 Products
               </Link>
               <Link
                 className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
                 href="/blogs"
+                passHref
               >
                 Blogs
               </Link>
               <Link
                 className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
                 href="/privacy"
+                passHref
               >
                 Policy
               </Link>
@@ -50,6 +61,7 @@ const Navbar: React.FC = () => {
             <Link
               className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-md"
               href="/contact"
+              passHref
             >
               Get in Touch
             </Link>
