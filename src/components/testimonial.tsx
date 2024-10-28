@@ -1,3 +1,5 @@
+"use client"; // Mark as client-side
+
 import React, { useState } from "react";
 
 const testimonials = [
