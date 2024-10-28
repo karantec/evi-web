@@ -252,7 +252,7 @@ export default function Home() {
         </div>
 
         {/* Products Section */}
-        <div className="flex flex-col gap-10 mb-16" ref={productsRef}>
+        <div className="flex flex-col gap-10 " ref={productsRef}>
           <Products />
           <Products1 />
         </div>
@@ -260,7 +260,7 @@ export default function Home() {
 
       {/* Testimonials Section */}
       <div
-        className="w-full text-center mt-4 text-3xl mb-40 font-bold"
+        className="w-full text-center  text-3xl  font-bold"
         ref={testimonialTitleRef}
       ></div>
       <div className="mb-14" ref={testimonialCarouselRef}>
