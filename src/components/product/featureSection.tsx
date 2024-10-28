@@ -1,44 +1,71 @@
-import React from "react";
+"use client"; // Ensure this is at the top of the file for Next.js
+
+import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+
+// Custom hook for counting animation
+const useCounter = (start: number, end: number, duration: number) => {
+  const [count, setCount] = useState(start);
+
+  useEffect(() => {
+    let startTimestamp: number | null = null;
+
+    const step = (timestamp: number) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      const currentCount = Math.floor(start + progress * (end - start));
+      setCount(currentCount);
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      }
+    };
+
+    requestAnimationFrame(step);
+  }, [start, end, duration]);
+
+  return count;
+};
 
 const FeatureSection: React.FC = () => {
+  // Define feature data as JSON
+  const features = [
+    { label: "Range", endValue: 100, unit: "Kilometers" },
+    { label: "Top Speed", endValue: 25, unit: "kmph" },
+    { label: "Peak Torque", endValue: 26, unit: "Nm" },
+    { label: "Payload Capacity", endValue: 400, unit: "Kg" },
+  ];
+
+  // Use the custom hook for counting
+  const counts = features.map((feature) =>
+    useCounter(0, feature.endValue, 1500)
+  );
+
   return (
     <div className="w-screen bg-white py-16">
       {/* Feature Cards */}
       <div className="max-w-6xl mx-auto flex justify-between items-center text-center">
-        {/* Feature 1: Range */}
-        <div className="flex flex-col">
-          <p className="text-gray-600 text-sm">Range</p>
-          <p className="text-[#1B4572] text-xl font-semibold">
-            100+ Kilometers
-          </p>
-        </div>
+        {features.map((feature, index) => (
+          <React.Fragment key={feature.label}>
+            {/* Feature Card */}
+            <div className="flex flex-col">
+              <p className="text-gray-600 text-sm">{feature.label}</p>
+              <motion.p
+                className="text-[#1B4572] text-xl font-semibold"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                {`${counts[index]} ${feature.unit}`}
+              </motion.p>
+            </div>
 
-        {/* Vertical Divider */}
-        <div className="border-r border-gray-300 h-12"></div>
-
-        {/* Feature 2: Top Speed */}
-        <div className="flex flex-col">
-          <p className="text-gray-600 text-sm">Top Speed</p>
-          <p className="text-[#1B4572] text-xl font-semibold">25 kmph</p>
-        </div>
-
-        {/* Vertical Divider */}
-        <div className="border-r border-gray-300 h-12"></div>
-
-        {/* Feature 3: Peak Torque */}
-        <div className="flex flex-col">
-          <p className="text-gray-600 text-sm">Peak Torque</p>
-          <p className="text-[#1B4572] text-xl font-semibold">26 Nm</p>
-        </div>
-
-        {/* Vertical Divider */}
-        <div className="border-r border-gray-300 h-12"></div>
-
-        {/* Feature 4: Payload Capacity */}
-        <div className="flex flex-col">
-          <p className="text-gray-600 text-sm">Payload Capacity</p>
-          <p className="text-[#1B4572] text-xl font-semibold">400 Kg</p>
-        </div>
+            {/* Vertical Divider */}
+            {index < features.length - 1 && (
+              <div className="border-r border-gray-300 h-12"></div>
+            )}
+          </React.Fragment>
+        ))}
       </div>
 
       {/* Description Section */}

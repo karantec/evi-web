@@ -1,9 +1,10 @@
 "use client"; // Mark as client-side
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { motion } from "framer-motion"; // Import Framer Motion
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,6 +14,34 @@ const HeroSection: React.FC = () => {
   const buttonsRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
   const thunderRef = useRef<HTMLDivElement>(null);
+
+  const headingText = "Power Up with E-Vi Electric 3 Vehicles";
+
+  // JSON data for description
+  const descriptionData = [
+    "Revolutionize urban transport with Chhota Otto, designed for comfort and efficiency.",
+    "Ideal for city commuting, ensuring a smooth ride for every passenger.",
+    "Experience top-notch safety and eco-friendly transport solutions with Chhota Otto.",
+  ];
+
+  const [currentDescription, setCurrentDescription] = useState(
+    descriptionData[0]
+  );
+
+  useEffect(() => {
+    let descIndex = 0;
+    const descInterval = setInterval(() => {
+      descIndex = (descIndex + 1) % descriptionData.length;
+      setCurrentDescription(descriptionData[descIndex]);
+      gsap.fromTo(
+        ".description-text",
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
+      );
+    }, 3000);
+
+    return () => clearInterval(descInterval);
+  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -56,17 +85,13 @@ const HeroSection: React.FC = () => {
         });
       }
 
-      // Image Animation
+      // Image Animation (fixed on the right side)
       if (imageRef.current) {
         gsap.from(imageRef.current, {
           opacity: 0,
-          scale: 0.95,
+          x: 100, // Start from right
           duration: 1,
           ease: "power2.out",
-          scrollTrigger: {
-            trigger: imageRef.current,
-            start: "top 80%",
-          },
         });
       }
     }, heroRef);
@@ -98,27 +123,47 @@ const HeroSection: React.FC = () => {
         ref={textRef}
       >
         <h1 className="text-5xl font-bold text-[#1B4572] mb-4">
-          Power Up with E-Vi Electric 3 Vehicles
+          {headingText.split("").map((char, index) => (
+            <motion.span
+              key={index}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: index * 0.05, duration: 0.2 }}
+            >
+              {char}
+            </motion.span>
+          ))}
         </h1>
-        <p className="text-lg text-gray-600 mb-8">
-          Revolutionize urban transport with Chhota Otto, designed for comfort
-          and efficiency. Ideal for city commuting, ensuring a smooth ride for
-          every passenger.
+        <p className="text-lg text-gray-600 mb-8 description-text">
+          {currentDescription}
         </p>
         <div className="flex space-x-4" ref={buttonsRef}>
-          <button className="px-6 py-3 bg-orange-600 text-white font-semibold rounded-lg hover:bg-orange-500 transform transition-transform duration-300">
+          <motion.button
+            className="px-6 py-3 bg-orange-600 text-white font-semibold rounded-lg hover:bg-orange-500 transform transition-transform duration-300"
+            whileHover={{ scale: 1.05, backgroundColor: "#FFB84D" }} // Scale and change background color on hover
+            whileTap={{ scale: 0.95 }} // Scale down when pressed
+            transition={{ duration: 0.2 }} // Duration for the animation
+          >
             Get in Touch
-          </button>
-          <button className="px-6 py-3 bg-gray-200 text-gray-900 font-semibold rounded-lg hover:bg-gray-300 transform transition-transform duration-300">
+          </motion.button>
+          <motion.button
+            className="px-6 py-3 bg-gray-200 text-gray-900 font-semibold rounded-lg hover:bg-gray-300 transform transition-transform duration-300"
+            whileHover={{ scale: 1.05, backgroundColor: "#D1D5DB" }} // Scale and change background color on hover
+            whileTap={{ scale: 0.95 }} // Scale down when pressed
+            transition={{ duration: 0.2 }} // Duration for the animation
+          >
             Book a Test Drive
-          </button>
+          </motion.button>
         </div>
       </div>
 
       {/* Right Section - Larger Rickshaw Image */}
-      <div
+      <motion.div
         className="relative z-10 w-1/2 flex justify-end items-end"
         ref={imageRef}
+        initial={{ x: 100, opacity: 0 }} // Start from right off-screen
+        animate={{ x: 10, opacity: 5 }} // Move to original position
+        transition={{ duration: 3 }} // Duration for the animation
       >
         <div className="w-[600px] h-auto mr-20">
           <Image
@@ -129,7 +174,7 @@ const HeroSection: React.FC = () => {
             className="object-contain"
           />
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

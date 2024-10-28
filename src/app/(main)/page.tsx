@@ -243,27 +243,27 @@ export default function Home() {
       </div>
 
       {/* Explore Our Fleet Section */}
-      <div
-        className="w-full text-center mt-8 text-3xl mb-16 font-bold"
-        ref={fleetRef}
-      >
-        <span className="text-[#1B4572]">Explore Our Fleet</span>
-      </div>
+      <div className="bg-[#E5E5E5] py-16">
+        <div
+          className="w-full text-center mt-8 text-3xl mb-16 font-bold"
+          ref={fleetRef}
+        >
+          <span className="text-[#1B4572]">Explore Our Fleet</span>
+        </div>
 
-      {/* Products Section */}
-      <div className="flex flex-col gap-10 mb-16" ref={productsRef}>
-        <Products />
-        <Products1 />
+        {/* Products Section */}
+        <div className="flex flex-col gap-10 mb-16" ref={productsRef}>
+          <Products />
+          <Products1 />
+        </div>
       </div>
 
       {/* Testimonials Section */}
       <div
-        className="w-full text-center mt-8 text-3xl mb-56 font-bold"
+        className="w-full text-center mt-4 text-3xl mb-40 font-bold"
         ref={testimonialTitleRef}
-      >
-        <span className="text-[#1B4572]">What Our Partners Say About Us</span>
-      </div>
-      <div className="mb-16" ref={testimonialCarouselRef}>
+      ></div>
+      <div className="mb-14" ref={testimonialCarouselRef}>
         <TestimonialCarousel />
       </div>
 
